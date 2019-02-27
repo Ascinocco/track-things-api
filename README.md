@@ -1,5 +1,10 @@
 # README
 
+First run
+1. docker-compose up
+2. docker-compose run web rake db:create
+3. docker-compose run web rails db:migrate
+
 Commands:
 $ docker-compose up
 
