@@ -1,5 +1,9 @@
 # README
 
+Headers required by frontend
+X-Key-Inflection camel
+Content-Type application/json
+
 First run
 1. docker-compose up
 2. docker-compose run web rake db:create
