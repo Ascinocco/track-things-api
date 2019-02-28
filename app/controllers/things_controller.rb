@@ -32,6 +32,11 @@ class ThingsController < ApplicationController
   end
 
   def set_thing
-    @thing = Thing.find(params[:thing_id])
+    thing = Thing.find_by id: params[:id], created_by: @current_user.id
+    if !thing
+      return json_response({ message: Message.unable_to_retrieve_record })
+    end
+
+    @thing = thing
   end
 end

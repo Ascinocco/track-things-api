@@ -35,4 +35,8 @@ class Message
   def self.passwords_do_not_match
     'The passwords you provided do no match.'
   end
+
+  def self.unable_to_retrieve_record
+    'Sorry, unable to retrieve record.'
+  end
 end
