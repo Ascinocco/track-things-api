@@ -39,4 +39,8 @@ class Message
   def self.unable_to_retrieve_record
     'Sorry, unable to retrieve record.'
   end
+
+  def self.email_in_use
+    'The email you entered is unavailable'
+  end
 end

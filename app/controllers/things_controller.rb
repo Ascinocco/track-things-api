@@ -1,18 +1,27 @@
 class ThingsController < ApplicationController
   before_action :set_thing, only: [:show, :update, :destroy]
-  before_action :set_user
 
   def index
-    json_response(@user.things)
-  end
-
-  def create
-    thing = @user.things.create!(thing_params)
-    json_response(thing);
+    json_response(@current_user.things)
   end
 
   def show
     json_response(@thing)
+  end
+
+  def create
+    thing = @current_user.things.create!(thing_params)
+    json_response(thing);
+  end
+
+  def update
+    @thing.update(thing_params)
+    head :no_content
+  end
+
+  def destroy
+    @thing.destroy
+    head :no_content
   end
 
   private
@@ -25,10 +34,6 @@ class ThingsController < ApplicationController
       :image,
       :reminders,
     )
-  end
-
-  def set_user
-    @user = User.find_by(email: @current_user.email)
   end
 
   def set_thing

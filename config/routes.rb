@@ -4,4 +4,7 @@ Rails.application.routes.draw do
 
   post 'auth/login', to: 'authentication#authenticate'
   post 'signup', to: 'users#create'
+
+  put 'profile/update', to: 'users#update'
+  delete 'profile/destroy', to: 'users#destroy'
 end
