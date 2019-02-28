@@ -10,8 +10,10 @@ class AuthenticationController < ApplicationController
     user = User.find_by(email: email)
 
     json_response({
-      user: user,
-      auth_token: auth_token
+      user: {
+        **user.get_sanitized_user,
+        auth_token: auth_token,
+      }
     }, :accepted)
   end
 

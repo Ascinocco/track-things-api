@@ -1,5 +1,6 @@
 class Thing < ApplicationRecord
-  belongs_to :user
+  belongs_to :user, optional: true
 
-  validates_presence_of :title
+  # @TODO: Only validate presence on certain actions
+  # validates_presence_of :title
 end

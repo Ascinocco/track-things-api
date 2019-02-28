@@ -12,7 +12,8 @@ class User < ApplicationRecord
   def get_sanitized_user
     return {
       name: self.name,
-      email: self.email
+      email: self.email,
+      things: self.things || []
     };
   end
 end
